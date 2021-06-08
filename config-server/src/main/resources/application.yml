@@ -1,0 +1,14 @@
+server:
+  port: 8286
+
+spring:  application:    name: CONFIG-SERVER
+  cloud:    config:      server:        git:          uri: https://github.com/techlearner-amit/config-server.git
+          clone-on-start: true
+        bootstrap: false
+  profiles:    active: native
+        
+eureka:  client:    register-with-eureka: true
+    fetch-registry: true
+    service-url:      default-zone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
